@@ -1,0 +1,5 @@
+<%= simple_form_for [Cocktail.find(params[:cocktail_id]), dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.button :submit %>
+<% end %>
