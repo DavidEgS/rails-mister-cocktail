@@ -9,7 +9,8 @@
         <h5><%= @cocktail.name %></h5>
             <p class="card-text">
             <% @cocktail.doses.each do |dose| %>
-              <%=  "#{dose.description} of #{dose.ingredient.name}" %>  <sup><%= link_to "delete", cocktail_dose_path(@cocktail, dose),
+              <%=  "#{dose.description} of #{dose.ingredient.name}" %>
+             <sup><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, cocktail_dose_path(@cocktail, dose),
         method: :delete,
         data: { confirm: "Delete #{dose.description} of #{dose.ingredient.name}?" } %></sup><BR>
               <% end %>
