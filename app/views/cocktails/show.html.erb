@@ -4,7 +4,7 @@
 <div class = "container centering">
   <div class="row p-3 mb-2">
     <div class="card centered" style="width: 18rem;">
-      <img class="card-img-top" src="https://static.vinepair.com/wp-content/uploads/2017/11/white-russian-inside.jpg" alt="Card image cap">
+      <%= cl_image_tag @cocktail.image.key, height: 300, width: 300, crop: :fill %>
       <div class="card-body">
         <h5><%= @cocktail.name %></h5>
             <p class="card-text">
