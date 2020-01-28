@@ -1,12 +1,30 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/coktails/show.html.erb</p>
+<h1 class="centering"><%= @cocktail.name %></h1>
 
-<div class = "container">
 
-<h2> <%= @cocktail.name %></h2>
+<div class = "container centering">
+  <div class="row p-3 mb-2">
+    <div class="card centered" style="width: 18rem;">
+      <img class="card-img-top" src="https://static.vinepair.com/wp-content/uploads/2017/11/white-russian-inside.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5><%= @cocktail.name %></h5>
+            <p class="card-text">
+            <% @cocktail.doses.each do |dose| %>
+              <%=  "#{dose.description} of #{dose.ingredient.name}" %>  <sup><%= link_to "delete", cocktail_dose_path(@cocktail, dose),
+        method: :delete,
+        data: { confirm: "Delete #{dose.description} of #{dose.ingredient.name}?" } %></sup><BR>
+              <% end %>
+            </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="centering">
 
 <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
 
-<%= link_to "All cocktails", cocktails_path %>
+</div>
+
 
 </div>
+
