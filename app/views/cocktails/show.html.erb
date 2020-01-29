@@ -1,31 +1,30 @@
-<h1 class="centering"><%= @cocktail.name %></h1>
 
 
-<div class = "container centering">
-  <div class="row p-3 mb-2">
-    <div class="card centered" style="width: 18rem;">
-      <%= cl_image_tag @cocktail.image.key, height: 300, width: 300, crop: :fill %>
-      <div class="card-body">
-        <h5><%= @cocktail.name %></h5>
-            <p class="card-text">
-            <% @cocktail.doses.each do |dose| %>
-              <%=  "#{dose.description} of #{dose.ingredient.name}" %>
-             <sup><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, cocktail_dose_path(@cocktail, dose),
-        method: :delete,
-        data: { confirm: "Delete #{dose.description} of #{dose.ingredient.name}?" } %></sup><BR>
-              <% end %>
-            </p>
+<div class = "centering bg-white">
+  <div class = "container centering">
+    <h1><%= @cocktail.name %></h1>
+    <div class="row p-3 mb-2">
+      <div class="card centered" style="width: 18rem;">
+        <img class="card-img-top" <%=image_tag("white_russian.jpg")%>>
+        <div class="card-body">
+              <p class="card-text">
+              <% @cocktail.doses.each do |dose| %>
+                <%=  "#{dose.description} of #{dose.ingredient.name}" %>
+               <sup><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, cocktail_dose_path(@cocktail, dose),
+          method: :delete,
+          data: { confirm: "Delete #{dose.description} of #{dose.ingredient.name}?" } %></sup><BR>
+                <% end %>
+              </p>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="centering">
+
+  <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
+
+  </div>
 </div>
 
-<div class="centering">
-
-<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
-
-</div>
-
-
-</div>
 
