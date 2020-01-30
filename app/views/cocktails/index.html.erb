@@ -1,19 +1,10 @@
 <div class="index-cont">
   <ul class="no_bullets">
-
+<% place_holder =  image_path('white_russian.jpg')%>
     <% @cocktails.each do |cocktail| %>
-  <li>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" <%=image_tag("white_russian.jpg")%>
-
-      <div class="card-body">
-        <h5><%= link_to "#{cocktail.name}", cocktail_path(cocktail) %></h5>
-            <p class="card-text">
-            <% cocktail.doses.each do |dose| %>
-              <%=  "#{dose.description} of #{dose.ingredient.name}" %>
-              <% end %>
-            </p>
-      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url(<%= cl_image_path cocktail.photo.key, :height => 250, :crop => :fill if cocktail.photo.attached? %>);">
+      <h6><%= link_to "#{cocktail.name}", cocktail_path(cocktail) %></h6>
     </div>
   </li>
     <% end %>

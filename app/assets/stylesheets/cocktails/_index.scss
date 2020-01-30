@@ -3,5 +3,29 @@
 }
 
 .index-cont {
-  background-image: image-url("stars_night_sky_596847.jpg");
+  background-color: rgb(33, 4, 47);
+}
+
+.content {
+  height: 15em;
+  width: 15em;
+}
+
+.card-category {
+  color: white;
+  height: 200px;
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-left: 45%;
+}
+
+.card-category a:link {
+  text-decoration: none;
 }
