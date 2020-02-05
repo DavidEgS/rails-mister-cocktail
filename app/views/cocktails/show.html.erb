@@ -1,11 +1,29 @@
+<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url(cl_image_path cocktail.image.key, :height => 250, :crop => :fill);'>
+  <h2> <%= @cocktail.name %> </h2>
+</div>
+<div class="flexy">
+  <div>
+    <h3>Recipe</h3>
+    <ul>
+      <% @cocktail.doses.each do |dose| %>
+        <li><%=  "#{dose.description} of #{dose.ingredient.name}" %>
+        <sup><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, cocktail_dose_path(@cocktail, dose),
+          method: :delete,
+          data: { confirm: "Delete #{dose.description} of #{dose.ingredient.name}?" } %></sup>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
+</div>
 
 <div class = "centering bg-white">
   <div class = "container centering">
     <h1><%= @cocktail.name %></h1>
     <div class="row p-3 mb-2">
       <div class="card centered" style="width: 18rem;">
-        <img class="card-img-top" <%=image_tag("white_russian.jpg")%>>
+        <%=image_tag("white_russian.jpg", class:"card-img-top")%>
         <div class="card-body">
               <p class="card-text">
               <% @cocktail.doses.each do |dose| %>

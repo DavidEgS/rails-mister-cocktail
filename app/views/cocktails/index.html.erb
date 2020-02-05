@@ -1,14 +1,27 @@
 <div class="index-cont">
   <ul class="no_bullets">
-<% place_holder =  image_path('white_russian.jpg')%>
+      <% place_holder =  image_path('white_russian.jpg')%>
+
+
     <% @cocktails.each do |cocktail| %>
-      <li>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-             url(<%= cl_image_path cocktail.image.key, :height => 250, :crop => :fill if cocktail.image.attached? %>);">
-          <h6><%= link_to "#{cocktail.name}", cocktail_path(cocktail) %></h6>
-        </div>
-      </li>
+      <% if cocktail.image.attached? %>
+        <li>
+          <div class="<%= cocktail.id.even? ? "card-category-first" :  "card-category-second" %>" id="boo" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url(cl_image_path cocktail.image.key,  :crop => :fill);'>
+            <h6><%= link_to cocktail.name, cocktail_path(cocktail) %></h6>
+          </div>
+        </li>
+      <% else %>
+        <li>
+          <div class="<%= cocktail.id.even? ? "card-category-first" :  "card-category-second" %>" id="test" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url(place_holder));'>
+            <h6><%= link_to cocktail.name, cocktail_path(cocktail) %></h6>
+          </div>
+        </li>
+      <% end %>
     <% end %>
 
   </ul>
 </div>
+
+

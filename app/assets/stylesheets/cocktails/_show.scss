@@ -12,3 +12,18 @@
 .bg-white {
   background-color: white;
 }
+
+.banner {
+  height: 50vh;
+  text-align: center;
+  padding: 24vh 0;
+}
+
+.banner h2 {
+  color: rgb(232, 247, 127);
+}
+
+.flexy {
+  display: flex-box;
+  justify-content: space-around;
+}
