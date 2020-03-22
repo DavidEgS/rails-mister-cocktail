@@ -7,7 +7,7 @@
     <h3>Recipe</h3>
     <ul>
       <% @cocktail.doses.each do |dose| %>
-        <li><%=  "#{dose.description} of #{dose.ingredient.name}" %>
+        <li class="show-ingredients"><%=  "#{dose.description} of #{dose.ingredient.name}" %>
         <sup><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, cocktail_dose_path(@cocktail, dose),
           method: :delete,
           data: { confirm: "Delete #{dose.description} of #{dose.ingredient.name}?" } %></sup>
